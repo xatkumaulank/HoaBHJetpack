@@ -17,43 +17,40 @@ import com.example.hoabhjetpack.R
 
 @Composable
 fun HomeScreen(navController: NavController) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .padding(16.dp)
     ) {
-
-        Surface(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
-                .padding(16.dp)
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    HeadingTextComponent(value = "Hi, Steven")
-                    Spacer(modifier = Modifier.weight(1f))
-                    MyAvatar(res = R.drawable.img_avt)
-                }
-                H1TextComponent(value = "Let’s make this day productive")
-                HeadingTextComponent(value = "My Task")
-
-                StaggeredGridView()
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    HeadingTextComponent(value = "Today Task")
-                    UnderLinedTextComponent(value = "View all")
-                }
-
-                Spacer(modifier = Modifier.fillMaxWidth().height(30.dp))
-                TodoItemList()
-
+            Row(modifier = Modifier.fillMaxWidth()) {
+                HeadingTextComponent(value = "Hi, Steven")
+                Spacer(modifier = Modifier.weight(1f))
+                MyAvatar(res = R.drawable.img_avt)
             }
+            H1TextComponent(value = "Let’s make this day productive")
+            HeadingTextComponent(value = "My Task")
+
+            StaggeredGridView()
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                HeadingTextComponent(value = "Today Task")
+                UnderLinedTextComponent(value = "View all")
+            }
+
+            Spacer(modifier = Modifier
+                .fillMaxWidth()
+                .height(30.dp))
+            TodoItemList()
+
         }
     }
 }

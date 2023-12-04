@@ -1,6 +1,4 @@
-package com.example.hoabhjetpack.component
-
-import androidx.compose.ui.graphics.Brush
+package com.example.hoabhjetpack.model
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 
@@ -9,7 +7,7 @@ data class StaggeredGridItem(
     val title: String,
     val content: String,
     val height: Int,
-    val brush: Brush,
+    val painterRes: Int,
     val widthIcon: Dp,
     val heightIcon: Dp,
     val colorText: Color

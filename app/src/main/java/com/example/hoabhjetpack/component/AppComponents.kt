@@ -23,8 +23,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -45,6 +47,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoabhjetpack.R
+import com.example.hoabhjetpack.model.StaggeredGridItem
 import com.example.hoabhjetpack.ui.theme.BgColor
 import com.example.hoabhjetpack.ui.theme.Primary
 import com.example.hoabhjetpack.utils.Constants
@@ -452,17 +455,13 @@ fun StaggeredGridItemCard(item: StaggeredGridItem, position: Int) {
         modifier = Modifier
             .fillMaxWidth()
             .height(item.height.dp)
+            .paint(painter = painterResource(id = item.painterRes), contentScale = ContentScale.FillBounds)
             .padding(8.dp)
         ,
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(item.height.dp)
-                .background(
-                    shape = RoundedCornerShape(16.dp),
-                    brush = item.brush
-                )
+                .fillMaxSize()
                 .padding(top = 16.dp, start = 16.dp),
         ) {
 
@@ -478,7 +477,7 @@ fun StaggeredGridItemCard(item: StaggeredGridItem, position: Int) {
                     Image(
                         painter = painterResource(id = item.icon),
                         contentDescription = null,
-                        modifier = androidx.compose.ui.Modifier
+                        modifier = Modifier
                             .width(item.widthIcon)
                             .height(item.heightIcon)
                     )
