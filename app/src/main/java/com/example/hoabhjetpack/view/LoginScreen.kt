@@ -26,11 +26,6 @@ import com.example.hoabhjetpack.component.*
 
 @Composable
 fun LoginScreen(navController: NavController) {
-    val firaSansFamily = FontFamily(
-        Font(R.font.dmsansregular, FontWeight.Normal),
-        Font(R.font.dmsansmedium, FontWeight.Medium),
-        Font(R.font.dmsansbold, FontWeight.Bold),
-    )
 
     Box(
         modifier = Modifier.fillMaxSize(),

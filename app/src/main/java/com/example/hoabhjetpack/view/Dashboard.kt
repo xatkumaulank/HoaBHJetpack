@@ -16,9 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.arvind.jetcomposeloginui.view.HomeScreen
 import com.example.hoabhjetpack.ui.theme.colorPrimary
-import com.example.hoabhjetpack.view.CheckoutScreen
 import com.example.hoabhjetpack.R
 
 
@@ -49,7 +47,7 @@ fun Dashboard(
                 else -> {}
             }
             when (section) {
-                DashboardSection.ShoppingCart -> CheckoutScreen()
+                DashboardSection.Activity -> ActivityScreen()
                 else -> {}
             }
         }
@@ -73,6 +71,7 @@ private fun BottomBar(
     ) {
         items.forEach { section ->
 
+
             val selected = section == currentSection
 
             val iconRes = if (selected) section.selectedIcon else section.icon
@@ -80,13 +79,13 @@ private fun BottomBar(
             BottomNavigationItem(
                 icon = {
                     Icon(
-                        painter = painterResource(id = iconRes),
-                        modifier = Modifier.size(24.dp),
+                        painter = if (section == DashboardSection.Add) painterResource(id = R.drawable.ic_add) else painterResource(id = iconRes),
+                        modifier = if (section == DashboardSection.Add) Modifier.size(48.dp) else Modifier.size(24.dp),
                         contentDescription = "Bottom nav icons"
                     )
                 },
                 selected = selected,
-                unselectedContentColor = Color.Gray,
+                unselectedContentColor = if (section == DashboardSection.Add) colorPrimary else Color.Gray,
                 selectedContentColor = colorPrimary,
                 onClick = { onSectionSelected(section) },
                 alwaysShowLabel = false
@@ -106,7 +105,8 @@ private enum class DashboardSection(
     val selectedIcon: Int,
 ) {
     Home(R.drawable.ic_home, R.drawable.ic_home),
-    List(R.drawable.ic_location, R.drawable.ic_location),
-    ShoppingCart(R.drawable.ic_cart, R.drawable.ic_cart),
-    Profile(R.drawable.ic_profile, R.drawable.ic_profile),
+    Task(R.drawable.ic_task, R.drawable.ic_task),
+    Add(R.drawable.ic_add, R.drawable.ic_add),
+    Activity(R.drawable.ic_activity, R.drawable.ic_activity),
+    Folder(R.drawable.ic_folder, R.drawable.ic_folder),
 }

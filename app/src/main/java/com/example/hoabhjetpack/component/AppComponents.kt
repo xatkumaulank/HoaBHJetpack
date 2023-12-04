@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -43,10 +44,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.arvind.jetcomposeloginui.R
-import com.arvind.jetcomposeloginui.ui.theme.BgColor
-import com.arvind.jetcomposeloginui.ui.theme.Primary
-import com.arvind.jetcomposeloginui.utils.Constants
+import com.example.hoabhjetpack.R
+import com.example.hoabhjetpack.ui.theme.BgColor
+import com.example.hoabhjetpack.ui.theme.Primary
+import com.example.hoabhjetpack.utils.Constants
 import com.example.hoabhjetpack.utils.DataUtil
 import com.example.hoabhjetpack.utils.DatetimeUtil
 

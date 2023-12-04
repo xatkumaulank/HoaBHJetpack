@@ -14,12 +14,9 @@ import androidx.navigation.NavController
 import com.example.hoabhjetpack.R
 import com.example.hoabhjetpack.component.*
 import com.example.hoabhjetpack.navigation.Screen
-import com.example.hoabhjetpack.component.*
 
 @Composable
 fun SignupScreen(navController: NavController){
-    var useremail by remember { mutableStateOf("") }
-
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
